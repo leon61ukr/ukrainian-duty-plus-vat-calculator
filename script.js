@@ -1,4 +1,4 @@
-const appID = MY_APP_ID;
+const appID = '2ee81c1b7b834078a6f4a6dd1d53872c';
 let exchangeRates = {};
 
 // Завантажити курси валют при завантаженні сторінки
