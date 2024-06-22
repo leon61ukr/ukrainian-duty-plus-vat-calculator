@@ -5,8 +5,10 @@ html, body {
 	min-height:100%;
 	background-image:linear-gradient(to bottom right,#12c2e9, #c471ed, #f64f59);
 	background-attachment:fixed;
+	font-family: Arial, sans-serif;
 }
-html * { z-index: 1; position:relative; }
+
+
 #bubbleContainer {
 	z-index:0;
 	overflow:hidden;
@@ -19,7 +21,3 @@ html * { z-index: 1; position:relative; }
 	z-index:-1;
 }
 
-.modal-backdrop
-{
-    opacity:0 !important;
-}
