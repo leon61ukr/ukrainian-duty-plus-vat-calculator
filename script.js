@@ -29,7 +29,13 @@ function calculate() {
     // Розрахувати мито і ПДВ
     const duty = (priceInEuro - 150) * 0.1;
     const vat = (priceInEuro - 150 + duty) * 0.2;
+	let total = duty + vat;
 
+	    // Перевірка на негативне значення
+    if (total < 0) {
+        total = 0;
+    }
+	
     // Відобразити результати на HTML
     document.getElementById('duty').innerText = `Мито: ${duty.toFixed(2)} євро`;
     document.getElementById('vat').innerText = `ПДВ: ${vat.toFixed(2)} євро`;
