@@ -7,22 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background"></div>
     <div class="content">
-        <h1>Розрахунок мита та ПДВ</h1>
-        <label for="price">Введіть ціну:</label>
-        <input type="number" id="price" name="price">
-        
+         <h1>Розрахунок мита та ПДВ</h1>
         <label for="currency">Виберіть валюту:</label>
         <select id="currency">
-			<option value="USD" selected>Долар США</option>
+            <option value="UAH" selected>Гривня</option>
+            <option value="USD">Долар США</option>
             <option value="EUR">Євро</option>
-			<option value="PLN">Польський Злотий</option>
-			<option value="UAH">Гривня</option>
         </select>
-        
+        <label for="price">Введіть ціну:</label>
+        <input type="number" id="price" name="price">
         <button onclick="calculate()">Розрахувати</button>
-        
         <div id="results">
             <p id="duty">Мито: </p>
             <p id="vat">ПДВ: </p>

@@ -36,6 +36,14 @@ function calculate() {
         total = 0;
     }
 	
+	    // Розрахунок в гривнях, якщо total не 0
+    let uahEquivalent = '';
+    if (total !== 0) {
+        const exchangeRate = getExchangeRate('EUR', 'UAH'); // Припустимо, що у вас є функція getExchangeRate, яка повертає курс обміну
+        uahEquivalent = ` (${(total * exchangeRate).toFixed(2)} грн)`;
+    }
+	
+	
     // Відобразити результати на HTML
     document.getElementById('duty').innerText = `Мито: ${duty.toFixed(2)} євро`;
     document.getElementById('vat').innerText = `ПДВ: ${vat.toFixed(2)} євро`;
