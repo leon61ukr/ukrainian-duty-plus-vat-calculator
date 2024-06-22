@@ -39,7 +39,7 @@ function calculate() {
     // Відобразити результати на HTML
     document.getElementById('duty').innerText = `Мито: ${duty.toFixed(2)} євро`;
     document.getElementById('vat').innerText = `ПДВ: ${vat.toFixed(2)} євро`;
-    document.getElementById('total').innerText = `Загалом: ${(duty + vat).toFixed(2)} євро`;
+	document.getElementById('total').innerText = `Загалом: ${total.toFixed(2)} євро`;
 }
 
 function convertToEuro(amount, currency) {
