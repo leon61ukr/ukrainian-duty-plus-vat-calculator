@@ -1,23 +1,94 @@
 html, body {
-	max-width: 980px;
+    max-width: 980px;
     margin: auto;
-	padding:0;
-	min-height:100%;
-	background-image:linear-gradient(to bottom right,#12c2e9, #c471ed, #f64f59);
-	background-attachment:fixed;
-	font-family: Arial, sans-serif;
+    padding: 0;
+    min-height: 100%;
+    background-image: linear-gradient(to bottom right, #12c2e9, #c471ed, #f64f59);
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
+.background {
+    z-index: -1;
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+#currency {
+	text-align: center;
+}
+
+#price {
+    width: 100px;
+    text-align: center;
+}
+
+#results {
+    margin-top: 20px;
+    display: none;
+}
+
+#calculateButton {
+    background-color: #44b678;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#calculateButton:hover {
+    background-color: #3ea465;
+}
+
+#calculateButton:active {
+    background-color: #369958;
+}
+
+#copyButton {
+    margin-top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 
 #bubbleContainer {
-	z-index:0;
-	overflow:hidden;
-	position:fixed;
-	height:100%;
-	width:100%;
-}
-#bubbleContainer div {
-	position:fixed;
-	z-index:-1;
+    z-index: 0;
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
 }
 
+#bubbleContainer div {
+    position: fixed;
+    z-index: -1;
+}
