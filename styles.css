@@ -32,7 +32,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-	margin-top: 20px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -41,7 +41,7 @@ h1 {
 }
 
 #currency {
-	text-align: center;
+    text-align: center;
 }
 
 #price {
@@ -73,11 +73,13 @@ h1 {
     background-color: #369958;
 }
 
+
 #copyButton {
-    margin-top: 10px;
+    margin-left: 10px;
     border: none;
     background: none;
     cursor: pointer;
+    padding: 0;
 }
 
 #bubbleContainer {

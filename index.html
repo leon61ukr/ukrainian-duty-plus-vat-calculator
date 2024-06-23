@@ -31,10 +31,14 @@
         <div id="results" style="display: none;">
             <p id="duty">Мито: </p>
             <p id="vat">ПДВ: </p>
-            <p id="total">Загалом: <span id="totalValue"></span></p>
-            <button id="copyButton" onclick="copyToClipboard()">
-                <img src="copy.png" alt="Copy Icon" width="24" height="24">
-            </button>
+            <p id="total">Загалом: 
+                <span id="totalValueContainer">
+                    <span id="totalValue"></span>
+                    <button id="copyButton" onclick="copyToClipboard()">
+                        <img src="copy.png" alt="Copy Icon" width="24" height="24">
+                    </button>
+                </span>
+            </p>
         </div>
     </div>
     <div id="bubbleContainer"></div>

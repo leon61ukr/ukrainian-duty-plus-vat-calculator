@@ -46,8 +46,7 @@ function calculate() {
 
     document.getElementById('duty').innerText = `Мито: ${formatNumber(dutyUAH)} грн. (${formatNumber(dutyUSD)} $/${formatNumber(dutyEUR)} €)`;
     document.getElementById('vat').innerText = `ПДВ: ${formatNumber(vatUAH)} грн. (${formatNumber(vatUSD)} $/${formatNumber(vatEUR)} €)`;
-    document.getElementById('total').innerHTML = `Загалом: <span id="totalValue">${formatNumber(totalUAH)} грн. (${formatNumber(totalUSD)} $/${formatNumber(totalEUR)} €)</span>`;
-    
+    document.getElementById('total').innerHTML = `Загалом: <span id="totalValue">${formatNumber(totalUAH)} грн. (${formatNumber(totalUSD)} $/${formatNumber(totalEUR)} €)</span><button id="copyButton" onclick="copyToClipboard()"><img src="copy.png" alt="Copy Icon" width="24" height="24"></button>`;
     document.getElementById('results').style.display = 'block';
     document.querySelector('.content').style.height = 'auto';
 }
