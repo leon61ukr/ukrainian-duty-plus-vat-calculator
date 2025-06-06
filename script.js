@@ -20,36 +20,45 @@ function calculate() {
         alert("Будь ласка, введіть правильне числове значення.");
         return;
     }
-
-    const priceInEuro = convertToEuro(price, currency);
-    const priceInUAH = convertToUAH(price, currency);
-
-    const duty = (priceInEuro - 150) * 0.1;
-    const vat = (priceInEuro - 150 + duty) * 0.2;
-    let total = duty + vat;
-
-    if (total < 0) {
-        total = 0;
-    }
-
-    const dutyUAH = duty * exchangeRates['UAH'];
-    const vatUAH = vat * exchangeRates['UAH'];
-    const totalUAH = total * exchangeRates['UAH'];
-
-    const dutyUSD = duty * exchangeRates['USD'];
-    const vatUSD = vat * exchangeRates['USD'];
-    const totalUSD = total * exchangeRates['USD'];
     
-    const dutyEUR = duty * exchangeRates['EUR'];
-    const vatEUR = vat * exchangeRates['EUR'];
-    const totalEUR = total * exchangeRates['EUR'];
+    if (!exchangeRates || !exchangeRates['EUR'] || !exchangeRates['UAH'] || !exchangeRates['USD']) {
+        alert('Курси валют не завантажені. Будь ласка, спробуйте пізніше.');
+        return;
+    }
+    
+    const rateToEuro = exchangeRates[currency] ? (1 / exchangeRates[currency]) * exchangeRates['EUR'] : 1;
+    const priceInEuro = price * rateToEuro;
+
+    const taxableAmount = priceInEuro - 150;
+    const duty = taxableAmount > 0 ? taxableAmount * 0.1 : 0;
+    const vat = taxableAmount > 0 ? (taxableAmount + duty) * 0.2 : 0;
+    const total = duty + vat;
+
+    const euroToUAH = exchangeRates['UAH'] / exchangeRates['EUR'];
+    const euroToUSD = exchangeRates['USD'] / exchangeRates['EUR'];
+
+    const dutyUAH = duty * euroToUAH;
+    const vatUAH = vat * euroToUAH;
+    const totalUAH = total * euroToUAH;
+
+    const dutyUSD = duty * euroToUSD;
+    const vatUSD = vat * euroToUSD;
+    const totalUSD = total * euroToUSD;
+
+    const dutyEUR = duty;
+    const vatEUR = vat;
+    const totalEUR = total;
 
     document.getElementById('duty').innerText = `Мито: ${formatNumber(dutyUAH)} грн. (${formatNumber(dutyUSD)} $/${formatNumber(dutyEUR)} €)`;
     document.getElementById('vat').innerText = `ПДВ: ${formatNumber(vatUAH)} грн. (${formatNumber(vatUSD)} $/${formatNumber(vatEUR)} €)`;
     document.getElementById('total').innerHTML = `Загалом: <span id="totalValue">${formatNumber(totalUAH)} грн. (${formatNumber(totalUSD)} $/${formatNumber(totalEUR)} €)</span><button id="copyButton" onclick="copyToClipboard()"><img src="copy.png" alt="Copy Icon" width="24" height="24"></button>`;
+
     document.getElementById('results').style.display = 'block';
     document.querySelector('.content').style.height = 'auto';
 }
+
+
+
 
 function convertToEuro(amount, currency) {
     if (!exchangeRates || !exchangeRates['EUR']) {
